@@ -17,12 +17,10 @@ fi
 node_name=$1
 selector=$2
 
-# Find node IP and instance ID
+# Find instance ID
 if [ -n "$node_name" ]; then
-  node_ip=$(kubectl get node $node_name -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}')
   instance_id=$(kubectl get node $node_name -o jsonpath='{.spec.providerID}' | cut -d'/' -f5)
 elif [ -n "$selector" ]; then
-  node_ip=$(kubectl get nodes -l $selector -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
   instance_id=$(kubectl get nodes -l $selector -o jsonpath='{.items[0].spec.providerID}' | cut -d'/' -f5)
 else
   echo "Usage: kubectl aws ssm [node-name] | [-l selector]"

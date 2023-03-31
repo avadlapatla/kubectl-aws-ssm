@@ -34,4 +34,4 @@ For example, to connect to a node with the label role=worker, run:
 kubectl aws ssm -l role=worker
 ```
 
-The plugin will find the node IP address and instance ID, and then use aws ssm start-session to initiate a session manager session to the EC2 instance.
+The plugin will find the node instance ID, and then use aws ssm start-session to initiate a session manager session to the EC2 instance.
