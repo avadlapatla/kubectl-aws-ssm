@@ -5,8 +5,9 @@ This is a kubectl plugin that allows users to connect to eks nodes using `kubect
 ## Prerequisites
 
 - kubectl
-- aws cli version 2
+- AWS cli version 2
 - session manager plugin
+- ssm agent ( The SSM agent is now installed and enabled by default in the latest release of the EKS Optimized Amazon Linux AMI, if you are using Custom AMI )
 
 ## Installation
 
